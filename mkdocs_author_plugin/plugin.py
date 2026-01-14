@@ -52,6 +52,6 @@ class AuthorsPlugin(BasePlugin):
             html += "</div>\n</div>"
 
             # append the HTML to the markdown content
-            markdown += html
+            html += markdown
 
-        return markdown
+        return html
