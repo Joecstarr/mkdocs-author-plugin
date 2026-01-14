@@ -43,12 +43,16 @@ class AuthorsPlugin(BasePlugin):
             for author_id in authors_list:
                 if author_id in self.authors:
                     author = self.authors[author_id]
+                    html += "<div class='author-card'>\n"
                     if "github" in author:
-                        html += "<div class='author-card'>\n"
                         html += f"  <a href='https://github.com/{author['github']}' target='_blank'>\n"
                         html += f"    <img src='https://github.com/{author['github']}.png?size=30' alt='' class='author-image'>\n"
                         html += "  </a>\n"
-                        html += "</div>\n"
+                    elif "website" in author:
+                        html += f"  <a href='{author['website']}' target='_blank'>\n"
+                        html += f"    <img src='{author['img']}' alt='' class='author-image'>\n"
+                        html += "  </a>\n"
+                    html += "</div>\n"
 
             html += "</div>\n"
 
