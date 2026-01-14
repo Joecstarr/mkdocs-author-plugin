@@ -25,7 +25,7 @@ class AuthorsPlugin(BasePlugin):
     def on_page_markdown(self, markdown, page, config, files):
         """Process the markdown content to add author information."""
         # extract authors from the YAML front matter
-        html = "\n\n<hr><div class='authors-section'>\n"
+        html = "\n\n<div class='authors-section'>\n"
         if page.meta and "authors" in page.meta:
             authors_list = page.meta["authors"]
             if not isinstance(authors_list, list):
@@ -52,7 +52,7 @@ class AuthorsPlugin(BasePlugin):
 
             html += "</div>\n"
 
-        html += "</div>"
+        html += "</div><hr>"
             # append the HTML to the markdown content
         html += markdown
 
