@@ -25,13 +25,14 @@ class AuthorsPlugin(BasePlugin):
     def on_page_markdown(self, markdown, page, config, files):
         """Process the markdown content to add author information."""
         # extract authors from the YAML front matter
+        html = "\n\n<hr><div class='authors-section'>\n"
         if page.meta and "authors" in page.meta:
             authors_list = page.meta["authors"]
             if not isinstance(authors_list, list):
                 authors_list = [authors_list]
 
             # create HTML for author profiles at the bottom of the page
-            html = "\n\n<hr><div class='authors-section'>\n"
+            
             html += "<style>\n"
             html += "  .authors-list { display: flex; flex-wrap: wrap; gap: 10px; }\n"
             html += "  .author-card { display: flex; align-items: center; }\n"
@@ -49,9 +50,10 @@ class AuthorsPlugin(BasePlugin):
                         html += "  </a>\n"
                         html += "</div>\n"
 
-            html += "</div>\n</div>"
+            html += "</div>\n"
 
+        html += "</div>"
             # append the HTML to the markdown content
-            html += markdown
+        html += markdown
 
         return html
