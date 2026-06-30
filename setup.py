@@ -1,15 +1,15 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="mkdocs-author-plugin",
-    version="0.1.0",
+    version="0.1.1",
     description="Add manually defined authors to MkDocs pages.",
-    author="Jakob Klotz",
-    author_email="jakob.klotz@mci.edu",
-    url="https://github.com/mciwing/mkdocs-author-plugin",
+    author="Joe Starr",
+    author_email="joe@joe-starr.com",
+    url="https://github.com/joecstarr/mkdocs-author-plugin",
     packages=find_packages(),
     install_requires=["mkdocs>=1.6.1", "pyyaml"],
-    python_requires=">=3.11,<3.13",
+    python_requires=">=3.10,<3.13",
     entry_points={
         "mkdocs.plugins": [
             "authors = mkdocs_author_plugin.plugin:AuthorsPlugin",
